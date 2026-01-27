@@ -24,6 +24,7 @@ export default function LoginPage() {
     }
     setStatus("로그인 완료! 홈으로 이동합니다.");
     router.push("/");
+    router.refresh();
   };
 
   return (
