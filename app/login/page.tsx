@@ -22,9 +22,13 @@ export default function LoginPage() {
       setStatus(data.error ?? "로그인에 실패했어요.");
       return;
     }
-    setStatus("로그인 완료! 홈으로 이동합니다.");
-    router.push("/");
-    router.refresh();
+    if (response.ok) {
+      // API 응답이 완전히 끝난 후 실행되도록 보장
+      setStatus("로그인 완료! 홈으로 이동합니다.");
+      window.location.href = '/';
+      // router.push('/');
+      // router.refresh();
+  }
   };
 
   return (
