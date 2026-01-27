@@ -1,4 +1,4 @@
-type OpenAIResult = {
+﻿type OpenAIResult = {
   term: string;
   summary: string;
   description: string;
@@ -32,7 +32,7 @@ export const generateTermExplanation = async (
         {
           role: "system",
           content:
-            "너는 IT를 잘 모르는 비전공자 학생에게 강사가 설명하듯 친절하고 쉽게 설명한다. 한국어 설명을 기본으로 하되, 용어 자체는 통용되는 한글 표기가 있을 때만 번역하고 일반적으로 영어를 쓰는 용어는 영어로 유지한다. 설명에 해당 용어의 활용 예시가 있으면 1문장으로 짧게 덧붙인다. JSON 형식으로 term, summary(한 문장), description(3~6문장)을 반환해라."
+            "너는 비전공자도 이해할 수 있도록 아주 쉽고 친절하게 설명한다. 한국어 설명을 기본으로 하되, 용어 자체는 통용되는 한글 표기가 있을 때만 번역하고 일반적으로 영어를 쓰는 용어는 영어로 유지한다. summary는 한 문장으로 아주 쉽게, description은 쉬운 말로 4~6문장으로 더 자세히 설명한다. 필요하면 간단한 비유나 예시를 1~2문장 덧붙인다. JSON 형식으로 term, summary, description을 반환해라."
         },
         { role: "user", content: query }
       ],
@@ -61,3 +61,5 @@ export const generateTermExplanation = async (
     return fallbackResult(query);
   }
 };
+
+
